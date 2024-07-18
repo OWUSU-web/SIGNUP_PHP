@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signup and Login Forms</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        width: 300px;
+        margin: 0 auto;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div id="signupForm">
+    <form action="signup_process.php" method="post">
+        <h2>Signup Form</h2>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Signup">
+    </form>
+    <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
+</div>
+
+<div id="loginForm" class="hidden">
+    <form action="login_process.php" method="post">
+        <h2>Login Form</h2>
+        <label for="loginUsername">Username</label>
+        <input type="text" id="loginUsername" name="username" required>
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" required>
+        <input type="submit" value="Login">
+    </form>
+    <p>Don't have an account? <a href="#" onclick="toggleForms()">Signup</a></p>
+</div>
+
+<script>
+    function toggleForms() {
+        var signupForm = document.getElementById('signupForm');
+        var loginForm = document.getElementById('loginForm');
+        
+        if (signupForm.classList.contains('hidden')) {
+            signupForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+        } else {
+            signupForm.classList.add('hidden');
+            loginForm.classList.remove('hidden');
+        }
+    }
+</script>
+
+</body>
+</html>
